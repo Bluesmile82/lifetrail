@@ -2,8 +2,8 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar role="navigation"
   div.navbar-container
     div.navbar-header
       = link_to( root_path , class: 'navbar-brand') do
-        i.icon.mdi-image-audiotrack
-        span  Songtrail
+        i.icon.mdi-action-accessibility
+        span  Lifetrail
         .ripple-wrapper
       button.navbar-toggle type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"
         span class="icon-bar"
@@ -13,14 +13,8 @@ nav.navbar.navbar-default.navbar-fixed-top.navbar role="navigation"
     .navbar-collapse.navbar-responsive-collapse.collapse aria-expanded="true"
       ul.nav.navbar-nav.navbar-right
 
-        - I18n.available_locales.each do |language|
-          - if locale == language
-            li= link_to( '#' ) do
-              strong= locale.upcase
-          - else
-            li
-              = link_to( language.upcase, locale: language )
-        li= link_to('Songs', 'javascript:void(0)')
+        li= link_to('Hoy', root_path )
+        li= link_to('Todos los días', days_path )
         li.dropdown
           a.dropdown-toggle href="#" data-target="#" data-toggle="dropdown" aria-expanded="false"
             span Dropdown

@@ -1,0 +1,28 @@
+  = form_for @day , class: 'form' do |f|
+    - if @day.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@day.errors.count, "error")} ha evitado salvar el día"
+        ul
+          - @day.errors.full_messages.each do |message|
+            li = message
+    .field.form-group
+      .control-label
+        = f.label 'Qué quieres hacer'
+        = f.text_field :desire, placeholder: 'Qué quieres hacer', class: "form-control"
+    .field.form-group
+      .control-label
+        = f.label 'Cómo te encuentras hoy'
+        = f.text_area :feeling, placeholder: 'Cómo te encuentras hoy', class: "form-control"
+    .field.form-group
+      .control-label
+        = f.label 'Canción para hoy'
+        = f.text_field :song, placeholder: 'Canción para hoy', class: "form-control"
+    .field.form-group
+      .control-label
+        = f.label 'Cómo va tu dolor'
+        p= @day.pain_level
+    .field.form-group
+        = f.select :pain_level, options_for_select( (0..5) , default: @day.pain_level ), { default: @day.pain_level }, class: "form-control"
+        = f.text_field :pain, placeholder: 'Cómo va tu dolor', class: "form-control"
+    = f.submit action, class: 'btn btn-primary'
+    = link_to 'Atrás', day_path, class: 'btn btn-info ' if @day.id

@@ -1,0 +1,49 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+      li.pull-right.active.badge
+    h5= @day.created_at ? @day.human_date : Time.now.strftime("%A, %e %B %Y")
+  .panel-body
+    - if @day.id
+      - if @day.is_html?
+        iframe.pull-right.song name='song' src="#{@day.song}"
+      - else
+        .panel.panel-default
+          .panel-body
+            i.mdi-image-audiotrack.pull-right= @day.song
+      .panel.panel-default
+        .panel-body
+          p= "Hoy quiero #{@day.desire}"
+      .panel.panel-default
+        .panel-body
+          p= "Me siento #{@day.feeling}"
+    - else
+      = render partial: 'form', locals:{ action: 'Create'}
+    .panel.panel-default
+      .panel-heading role="tab" id="heading-ind-prensa"
+        h4.panel-title
+          a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ind-prensa" aria-expanded="true" aria-controls="collapse-ind-prensa"
+            span Prensa
+      .panel-collapse.collapse id="collapse-ind-prensa" role="tabpanel" aria-labelledby="heading-ind-prensa"
+        .panel-body
+          li
+            a href="http://elpais.com" target='_blank' El País
+          li
+            a href="http://www.elmundo.es" target='_blank' El Mundo
+          li
+            a href="http://www.diagonalperiodico.net/" target='_blank' Diagonal
+      .panel-heading role="tab" id="heading-ind-word"
+        h4.panel-title
+          a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ind-word" aria-expanded="true" aria-controls="collapse-ind-word"
+            span Word of the day
+      .panel-collapse.collapse id="collapse-ind-word" role="tabpanel" aria-labelledby="heading-ind-word"
+        .panel-body
+          h3= Wordnik.words.get_word_of_the_day['word']
+          h4.text-muted= Wordnik.words.get_word_of_the_day['note']
+          blockquote
+            - Wordnik.words.get_word_of_the_day['examples'].each do |example|
+              p= example['text']
+            end
+
+  = link_to 'Editar', edit_day_path(@day), class: 'btn btn-warning pull-right' if @day.id

@@ -1,0 +1,22 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Todos los días
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Fecha
+          th desire
+          th Feeling
+          th pain
+          th pain_level
+
+      tbody
+        - @days.each do |day|
+          tr
+            td = link_to day.human_date , day, class: 'btn btn-primary'
+            td = day.desire
+            td = day.feeling
+            td = day.pain
+            td = day.pain_level

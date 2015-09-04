@@ -1,7 +1,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap-material-design";
-@import "material-full-palette";
 @import "font-awesome";
 
 
@@ -23,7 +22,7 @@ h1{
   }
 }
 
-.backing-track{
-  height: 50em;
+.song{
+  height: 10em;
   width: 50%;
 }
