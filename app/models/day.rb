@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: days
+#
+#  id         :integer          not null, primary key
+#  feeling    :text
+#  song       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  desire     :text
+#  pain       :text
+#  pain_level :integer
+#  dreams     :string
+#
+
 class Day < ActiveRecord::Base
   validate :just_today, on: :create
   GMT = 2
