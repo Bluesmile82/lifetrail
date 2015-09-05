@@ -20,6 +20,7 @@ gem 'slim-rails'
 gem 'will_paginate'
 gem 'annotate'
 gem 'puma'
+gem "cocoon"
 
 group :development, :test do
   gem 'byebug'

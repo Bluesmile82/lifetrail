@@ -17,7 +17,10 @@ class Day < ActiveRecord::Base
   validate :just_today, on: :create
   GMT = 2
   GMT_SECONDS = GMT * 60 * 60
-
+  has_many :questions
+  has_many :answers
+  accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :answers
 
   def just_today
   end

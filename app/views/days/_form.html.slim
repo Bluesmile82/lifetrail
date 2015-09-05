@@ -5,18 +5,22 @@
         ul
           - @day.errors.full_messages.each do |message|
             li = message
+
     .field.form-group
       .control-label
         = f.label 'Recuerdas algún sueño'
         = f.text_field :dreams, placeholder: 'Recuerdas algún sueño', class: "form-control"
+
     .field.form-group
       .control-label
         = f.label 'Qué quieres hacer'
         = f.text_field :desire, placeholder: 'Qué quieres hacer', class: "form-control"
+
     .field.form-group
       .control-label
         = f.label 'Cómo te encuentras hoy'
         = f.text_area :feeling, placeholder: 'Cómo te encuentras hoy', class: "form-control"
+
     .field.form-group
       .control-label
         = f.label 'Canción para hoy'
@@ -26,7 +30,18 @@
         = f.label 'Cómo va tu dolor'
         p= @day.pain_level
     .field.form-group
-        = f.select :pain_level, options_for_select( (0..5) , default: @day.pain_level ), { default: @day.pain_level }, class: "form-control"
+        = f.range_field  :pain_level, class: "form-control"
         = f.text_field :pain, placeholder: 'Cómo va tu dolor', class: "form-control"
+
+    .field.form-group
+      .control-label
+        = f.label 'Una pregunta personal'
+        = f.fields_for :questions do |question|
+          = render 'question_fields', f: question
+        .links
+          = link_to_add_association '+', f, :questions
+
+
+
     = f.submit action, class: 'btn btn-primary'
     = link_to 'Atrás', day_path, class: 'btn btn-info ' if @day.id

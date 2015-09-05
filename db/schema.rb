@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150905100728) do
+ActiveRecord::Schema.define(version: 20150905115745) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "text"
+    t.integer  "day_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "answers", ["day_id"], name: "index_answers_on_day_id", using: :btree
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "days", force: :cascade do |t|
     t.text     "feeling"
@@ -27,4 +38,17 @@ ActiveRecord::Schema.define(version: 20150905100728) do
     t.string   "dreams"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.boolean  "personal"
+    t.string   "text"
+    t.integer  "day_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "questions", ["day_id"], name: "index_questions_on_day_id", using: :btree
+
+  add_foreign_key "answers", "days"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "days"
 end
