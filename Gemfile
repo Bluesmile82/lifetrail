@@ -21,6 +21,7 @@ gem 'will_paginate'
 gem 'annotate'
 gem 'puma'
 gem "cocoon"
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug'
