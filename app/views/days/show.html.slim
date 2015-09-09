@@ -18,6 +18,12 @@ p#notice = notice
       .panel.panel-default
         .panel-body
           p= "Me siento #{@day.feeling}"
+      .panel.panel-default
+        .panel-body
+          p= "#{@day.poem}"
+      .panel.panel-default
+        .panel-body
+          p= "#{@day.new}"
     - else
       = render partial: 'form', locals:{ action: 'Create'}
     .panel.panel-default
@@ -33,17 +39,19 @@ p#notice = notice
             a href="http://www.elmundo.es" target='_blank' El Mundo
           li
             a href="http://www.diagonalperiodico.net/" target='_blank' Diagonal
-      .panel-heading role="tab" id="heading-ind-word"
-        h4.panel-title
-          a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ind-word" aria-expanded="true" aria-controls="collapse-ind-word"
-            span Word of the day
-      .panel-collapse.collapse id="collapse-ind-word" role="tabpanel" aria-labelledby="heading-ind-word"
-        .panel-body
-          h3= Wordnik.words.get_word_of_the_day['word']
-          h4.text-muted= Wordnik.words.get_word_of_the_day['note']
-          blockquote
-            - Wordnik.words.get_word_of_the_day['examples'].each do |example|
-              p= example['text']
-            end
+      - word_of_the_day = Wordnik.words.get_word_of_the_day['word']
+      - if word_of_the_day
+        .panel-heading role="tab" id="heading-ind-word"
+          h4.panel-title
+            a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ind-word" aria-expanded="true" aria-controls="collapse-ind-word"
+              span Word of the day
+        .panel-collapse.collapse id="collapse-ind-word" role="tabpanel" aria-labelledby="heading-ind-word"
+          .panel-body
+            h3= Wordnik.words.get_word_of_the_day['word']
+            h4.text-muted= Wordnik.words.get_word_of_the_day['note']
+            blockquote
+              - Wordnik.words.get_word_of_the_day['examples'].each do |example|
+                p= example['text']
+              end
 
   = link_to 'Editar', edit_day_path(@day), class: 'btn btn-warning pull-right' if @day.id

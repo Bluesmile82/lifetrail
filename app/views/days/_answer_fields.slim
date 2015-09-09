@@ -1,0 +1,5 @@
+.nested-fields
+  .field
+    = f.label 'Respuesta'
+    = f.text_area :text, placeholder: 'Añade una respuesta', class: "form-control"
+  = link_to_remove_association "-", f
