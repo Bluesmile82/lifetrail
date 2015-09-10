@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909073246) do
+ActiveRecord::Schema.define(version: 20150910180101) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150909073246) do
     t.string   "poem"
     t.string   "new"
     t.string   "artist"
+    t.string   "journal"
   end
 
   create_table "questions", force: :cascade do |t|

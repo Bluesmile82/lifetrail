@@ -23,6 +23,11 @@
 
     .field.form-group
       .control-label
+        = f.label 'Qué has hecho hoy'
+        = f.text_field :journal, placeholder: 'Qué has hecho hoy', class: "form-control"
+
+    .field.form-group
+      .control-label
         = f.label 'Canción para hoy'
         = f.text_field :song, placeholder: 'Canción para hoy', class: "form-control"
     .field.form-group

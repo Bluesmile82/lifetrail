@@ -9,21 +9,33 @@ p#notice = notice
       - if @day.is_html?
         iframe.pull-right.song name='song' src="#{@day.song}"
       - else
+        - if @day.song != ''
+          .panel.panel-default
+            .panel-body
+              i.mdi-image-audiotrack.pull-right= @day.song
+      - if @day.desire != ''
         .panel.panel-default
           .panel-body
-            i.mdi-image-audiotrack.pull-right= @day.song
-      .panel.panel-default
-        .panel-body
-          p= "Hoy quiero #{@day.desire}"
-      .panel.panel-default
-        .panel-body
-          p= "Me siento #{@day.feeling}"
-      .panel.panel-default
-        .panel-body
-          p= "#{@day.poem}"
-      .panel.panel-default
-        .panel-body
-          p= "#{@day.new}"
+            p= "Hoy quiero #{@day.desire}"
+      - if @day.feeling != ''
+        .panel.panel-default
+          .panel-body
+            p= "Me siento #{@day.feeling}"
+
+      - if @day.journal != ''
+        .panel.panel-default
+          .panel-body
+            p= "#{@day.journal}"
+
+      - if @day.poem != ''
+        .panel.panel-default
+          .panel-body
+            p= "#{@day.poem}"
+
+      - if @day.new != ''
+        .panel.panel-default
+          .panel-body
+            p= "#{@day.new}"
     - else
       = render partial: 'form', locals:{ action: 'Create'}
     .panel.panel-default
