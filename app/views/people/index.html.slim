@@ -1,0 +1,27 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Personas
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Nombre
+          th Ciudad
+          th Ultima vez contactada
+          th Estado de ánimo
+          th
+          th
+
+      tbody
+        - @people.each do |person|
+          tr
+            td = link_to person.name , person , class: 'btn btn-primary'
+            td = person.city
+            td = distance_of_time_in_words_to_now(person.last_date_seen)
+            td = person.mood
+            td = link_to 'Editar', edit_person_path(person), class: 'btn btn-info'
+            td = link_to 'Borrar', person, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nueva Persona', new_person_path, class: 'btn btn-primary'

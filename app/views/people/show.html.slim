@@ -1,0 +1,12 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+      li.pull-right.active.badge= @person.city
+    h1= @person.name
+    = @person.mood
+  .panel-body
+    h5= "Vista última vez #{distance_of_time_in_words_to_now(@person.last_date_seen)}"
+
+    = link_to 'Editar', edit_person_path(@person), class: 'btn btn-warning pull-right'
+    = link_to 'Back', people_path, class: 'btn btn-info pull-right'
