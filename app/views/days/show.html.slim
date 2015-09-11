@@ -5,14 +5,23 @@ p#notice = notice
       li.pull-right.active.badge
     h5= @day.created_at ? @day.human_date : Time.now.strftime("%A, %e %B %Y")
   .panel-body
+
     - if @day.id
-      - if @day.is_html?
-        iframe.pull-right.song name='song' src="#{@day.song}"
-      - else
-        - if @day.song != ''
-          .panel.panel-default
-            .panel-body
-              i.mdi-image-audiotrack.pull-right= @day.song
+      - if @day.art != ''
+      .panel.panel-default
+        .panel-body
+          ul
+            li.art
+              img.art name='art' src="#{@day.art}"
+            - if @day.is_html?
+              li.song
+                iframe.pull-right.song name='song' src="#{@day.song}"
+            - else
+              - if @day.song != ''
+                li
+                  i.mdi-image-audiotrack.pull-right= @day.song
+            figcaption
+            em.text-muted= @day.art_name
       - if @day.desire != ''
         .panel.panel-default
           .panel-body

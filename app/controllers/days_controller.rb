@@ -52,6 +52,6 @@ class DaysController < ApplicationController
     end
 
     def day_params
-      params.require(:day).permit(:feeling, :song, :desire, :pain, :pain_level, :dreams, :poem, :new, :artist, :journal, :advice)
+      params.require(:day).permit(:feeling, :song, :desire, :pain, :pain_level, :dreams, :poem, :new, :artist, :journal, :advice, :art, :art_name)
     end
 end

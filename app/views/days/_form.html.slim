@@ -37,8 +37,18 @@
         = f.text_field :song, placeholder: 'Canción para hoy', class: "form-control"
     .field.form-group
       .control-label
-        = f.label 'Artista'
+        = f.label 'Grupo de la canción'
         = f.text_field :artist, placeholder: 'Artista', class: "form-control"
+
+    .field.form-group
+      .control-label
+        = f.label 'Arte para hoy'
+        = f.text_field :art, placeholder: 'Arte para hoy', class: "form-control"
+
+    .field.form-group
+      .control-label
+        = f.label 'Nombre del arte'
+        = f.text_field :art_name, placeholder: 'Nombre del arte', class: "form-control"
     .field.form-group
       .control-label
         = f.label 'Cómo va tu dolor'
