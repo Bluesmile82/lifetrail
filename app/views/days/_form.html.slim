@@ -28,6 +28,11 @@
 
     .field.form-group
       .control-label
+        = f.label 'Un consejo'
+        = f.text_area :advice, placeholder: 'Un consejo', class: "form-control"
+
+    .field.form-group
+      .control-label
         = f.label 'Canción para hoy'
         = f.text_field :song, placeholder: 'Canción para hoy', class: "form-control"
     .field.form-group
