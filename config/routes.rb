@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :achievements
   resources :people
     get 'home/index'
-    resources :days
-    root 'days#show'
+  resources :days
+  root 'days#show'
 end

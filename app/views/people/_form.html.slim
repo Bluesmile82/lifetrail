@@ -23,6 +23,14 @@
     .control-label
       = f.label 'Estado de ánimo'
       = f.text_field :mood, class: "form-control"
+  .field.form-group
+    .control-label
+      = f.label 'Que le gusta'
+      = f.text_field :likes, class: "form-control"
+  .field.form-group
+    .control-label
+      = f.label 'Fecha de nacimiento'
+      p= f.date_select :birthday, class: "form-control"
 
     = f.submit action, class: 'btn btn-primary'
     = link_to 'Atrás', people_path, class: 'btn btn-info '

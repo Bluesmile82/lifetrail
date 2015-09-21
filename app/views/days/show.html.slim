@@ -5,7 +5,11 @@ p#notice = notice
       li.pull-right.active.badge
     h5= @day.created_at ? @day.human_date : Time.now.strftime("%A, %e %B %Y")
   .panel-body
-
+    - if @day.birthdays
+      - if @day.birthdays.size > 0
+        p Hoy cumplen años:
+        - @day.birthdays.each do |person|
+          |= person.name
     - if @day.id
       - if @day.art != ''
       .panel.panel-default

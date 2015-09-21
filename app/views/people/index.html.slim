@@ -10,6 +10,8 @@
           th Ciudad
           th Ultima vez contactada
           th Estado de ánimo
+          th Likes
+          th Cumpleaños
           th
           th
 
@@ -18,8 +20,10 @@
           tr
             td = link_to person.name , person , class: 'btn btn-primary'
             td = person.city
-            td = distance_of_time_in_words_to_now(person.last_date_seen)
+            td = time_ago_in_words(person.last_date_seen)
             td = person.mood
+            td = person.likes
+            td = person.birthday.strftime('%d/%m')
             td = link_to 'Editar', edit_person_path(person), class: 'btn btn-info'
             td = link_to 'Borrar', person, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
 

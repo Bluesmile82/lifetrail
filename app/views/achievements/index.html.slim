@@ -1,0 +1,22 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Logros
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Nombre
+          th
+          th
+
+      tbody
+        - @achievements.each do |achievement|
+          tr
+            td = link_to achievement.name , achievement , class: 'btn btn-primary'
+            td = time_ago_in_words(achievement.created_at)
+            td = link_to 'Editar', edit_achievement_path(achievement), class: 'btn btn-info'
+            td = link_to 'Borrar', achievement, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_achievement_path, class: 'btn btn-primary'

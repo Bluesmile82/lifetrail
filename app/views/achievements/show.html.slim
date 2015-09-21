@@ -1,0 +1,9 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+    h1= @achievement.name
+  .panel-body
+
+    = link_to 'Editar', edit_achievement_path(@achievement), class: 'btn btn-warning pull-right'
+    = link_to 'Back', achievement_path, class: 'btn btn-info pull-right'

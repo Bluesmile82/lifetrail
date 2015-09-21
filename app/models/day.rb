@@ -36,4 +36,8 @@ class Day < ActiveRecord::Base
   def is_html?
     song.match(/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*/).present?
   end
+
+  def birthdays
+    Person.select{|p| p.birthday.month == created_at.month && p.birthday.day == created_at.day } if created_at
+  end
 end
