@@ -3,9 +3,10 @@
     = f.label 'Pregunta'
     = f.text_area :text, placeholder: 'Añade una pregunta' , class: "form-control"
     = link_to_remove_association "-", f
-    = f.label 'Respuesta'
-      = f.fields_for :answers do |answer|
-        = render 'answer_fields', f: answer
-    .links
-      = link_to_add_association 'Añade respuesta', f, :answers
+    #answers
+      = f.label 'Respuesta'
+        = f.fields_for :answers do |answer|
+          = render 'answer_fields', f: answer
+      .links
+        = link_to_add_association 'Añade respuesta', f, :answers
 

@@ -72,13 +72,11 @@
 
     .field.form-group
       .control-label
-        = f.label 'Una pregunta personal'
-        = f.fields_for :questions do |question|
-          = render 'question_fields', f: question
-        .links
-          = link_to_add_association 'Añade pregunta', f, :questions
-
-
-
+        #questions
+          = f.label 'Una pregunta personal'
+          = f.fields_for :questions do |question|
+            = render 'question_fields', f: question
+          .links
+            = link_to_add_association 'Añade pregunta', f, :questions
     = f.submit action, class: 'btn btn-primary'
     = link_to 'Atrás', day_path, class: 'btn btn-info ' if @day.id

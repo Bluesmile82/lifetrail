@@ -1,0 +1,22 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Preguntas
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Pregunta
+          th
+          th
+
+      tbody
+        - @questions.each do |question|
+          tr
+            td = link_to question.text , question , class: 'btn btn-primary'
+            td = time_ago_in_words(question.created_at)
+            td = link_to 'Editar', edit_question_path(question), class: 'btn btn-info'
+            td = link_to 'Borrar', question, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_question_path, class: 'btn btn-primary'

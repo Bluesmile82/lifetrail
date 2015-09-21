@@ -14,4 +14,5 @@ class Question < ActiveRecord::Base
   belongs_to :day
   has_many :answers
   accepts_nested_attributes_for :answers
+  validates :text, presence: true
 end

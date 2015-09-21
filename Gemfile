@@ -24,6 +24,7 @@ gem 'annotate'
 gem 'puma'
 gem "cocoon"
 gem 'rails_12factor'
+gem 'figaro'
 
 group :development, :test do
   gem 'byebug'
