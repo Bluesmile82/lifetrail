@@ -11,6 +11,13 @@
 #  pain       :text
 #  pain_level :integer
 #  dreams     :string
+#  poem       :string
+#  new        :string
+#  artist     :string
+#  journal    :string
+#  advice     :string
+#  art        :string
+#  art_name   :string
 #
 
 class Day < ActiveRecord::Base
@@ -38,6 +45,12 @@ class Day < ActiveRecord::Base
   end
 
   def birthdays
-    Person.select{|p| p.birthday.month == created_at.month && p.birthday.day == created_at.day } if created_at
+    if created_at
+      Person.select{|p|
+        if p.birthday
+          p.birthday.month == created_at.month && p.birthday.day == created_at.day
+        end
+      }
+    end
   end
 end

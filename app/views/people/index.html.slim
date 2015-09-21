@@ -23,7 +23,7 @@
             td = time_ago_in_words(person.last_date_seen)
             td = person.mood
             td = person.likes
-            td = person.birthday.strftime('%d/%m')
+            td = person.birthday ? person.birthday.strftime('%d/%m') : 'Cumpleaños desconocido'
             td = link_to 'Editar', edit_person_path(person), class: 'btn btn-info'
             td = link_to 'Borrar', person, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
 
