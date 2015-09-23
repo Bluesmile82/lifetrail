@@ -64,6 +64,18 @@ p#notice = notice
             a href="http://www.elmundo.es" target='_blank' El Mundo
           li
             a href="http://www.diagonalperiodico.net/" target='_blank' Diagonal
+      .panel-heading role="tab" id="heading-ind-events"
+        h4.panel-title
+          a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-ind-events" aria-expanded="true" aria-controls="collapse-ind-events"
+            span Events
+      .panel-collapse.collapse id="collapse-ind-events" role="tabpanel" aria-labelledby="heading-ind-events"
+        .panel-body
+          li
+            a href="http://www.arsene50.be/fr" target='_blank' Arsene 50
+          li
+            a href="http://www.agenda.be/fr/section/s/concerts.html" target='_blank' Concerts
+          li
+            a href="http://www.cinematek.be/?node=9&description=Calendrier" target='_blank' Cinematek
       - word_of_the_day = Wordnik.words.get_word_of_the_day['word']
       - if word_of_the_day
         .panel-heading role="tab" id="heading-ind-word"
