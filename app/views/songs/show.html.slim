@@ -1,0 +1,9 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+    h1= @song.title
+  .panel-body
+
+    = link_to 'Editar', edit_song_path(@song), class: 'btn btn-warning pull-right'
+    = link_to 'Back', song_path, class: 'btn btn-info pull-right'

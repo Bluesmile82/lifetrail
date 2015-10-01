@@ -1,0 +1,25 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Canción
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Canción
+          th Autor
+          th Url
+          th
+          th
+
+      tbody
+        - @songs.each do |song|
+          tr
+            td = link_to song.title ,song , class: 'btn btn-primary'
+            td = song.author
+            td = song.url
+            td = link_to 'Editar', edit_song_path(song), class: 'btn btn-info'
+            td = link_to 'Borrar', song, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_song_path, class: 'btn btn-primary'

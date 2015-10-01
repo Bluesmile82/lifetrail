@@ -1,0 +1,9 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+    h1= @art.title
+  .panel-body
+
+    = link_to 'Editar', edit_art_path(@art), class: 'btn btn-warning pull-right'
+    = link_to 'Back', art_path, class: 'btn btn-info pull-right'

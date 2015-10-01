@@ -26,6 +26,7 @@ gem 'puma'
 gem "cocoon"
 gem 'rails_12factor'
 gem 'figaro'
+gem 'awesome_print'
 
 group :development, :test do
   gem 'byebug'

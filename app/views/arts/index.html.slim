@@ -1,0 +1,25 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Arte
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Arte
+          th Autor
+          th Url
+          th
+          th
+
+      tbody
+        - @arts.each do |art|
+          tr
+            td = link_to art.title ,art , class: 'btn btn-primary'
+            td = art.author
+            td = art.url
+            td = link_to 'Editar', edit_art_path(art), class: 'btn btn-info'
+            td = link_to 'Borrar', art, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_art_path, class: 'btn btn-primary'

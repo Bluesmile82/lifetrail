@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :advice
   resources :people
   resources :days
+  resources :arts
+  resources :songs
   get 'home/index'
   root 'days#show'
 end

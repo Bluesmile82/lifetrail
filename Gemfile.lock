@@ -44,6 +44,7 @@ GEM
     autoprefixer-rails (5.2.1.1)
       execjs
       json
+    awesome_print (1.6.1)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bootstrap-material-design (0.2.1)
@@ -219,6 +220,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  awesome_print
   bootstrap-material-design
   bootstrap-sass (~> 3.3.5)
   bootstrap3-datetimepicker-rails (~> 4.14.30)

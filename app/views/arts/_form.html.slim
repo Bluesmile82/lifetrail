@@ -1,0 +1,18 @@
+= form_for @art , class: 'form'  do |f|
+  - if @art.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@art.errors.count, "error")} prohibited this art from being saved:"
+      ul
+        - @art.errors.full_messages.each do |message|
+          li = message
+
+  .field.form-group
+    .control-label
+      = f.label 'Arte'
+      = f.text_field :url, placeholder: 'Url' , class: "form-control"
+      = f.text_field :author, placeholder: 'Autor' , class: "form-control"
+      = f.text_field :title, placeholder: 'Nombre' , class: "form-control"
+
+
+    = f.submit action, class: 'btn btn-primary'
+    = link_to 'Atrás', arts_path, class: 'btn btn-info '

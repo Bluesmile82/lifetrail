@@ -16,8 +16,6 @@
 #  artist     :string
 #  journal    :string
 #  advice     :string
-#  art        :string
-#  art_name   :string
 #
 
 class Day < ActiveRecord::Base
