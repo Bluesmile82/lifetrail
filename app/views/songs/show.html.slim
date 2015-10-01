@@ -4,6 +4,6 @@ p#notice = notice
     ul.nav.nav-pils
     h1= @song.title
   .panel-body
-
+    iframe.pull-right.song name='song' src="#{@day.song.url}"
     = link_to 'Editar', edit_song_path(@song), class: 'btn btn-warning pull-right'
     = link_to 'Back', song_path, class: 'btn btn-info pull-right'

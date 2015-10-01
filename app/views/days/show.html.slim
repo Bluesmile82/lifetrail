@@ -20,28 +20,27 @@ p#notice = notice
              figcaption
               em.text-muted= "#{@day.art.title} - #{@day.arts.first.author}"
       - if @day.song && @day.song.url && @day.song.is_html?
-        p= "#{@day.song.url}"
         iframe.pull-right.song name='song' src="#{@day.song.url}"
-      - if @day.desire != ''
+      - unless @day.desire.blank?
         .panel.panel-default
           .panel-body
             p= "Hoy quiero #{@day.desire}"
-      - if @day.feeling != ''
+      - unless @day.feeling.blank?
         .panel.panel-default
           .panel-body
             p= "Me siento #{@day.feeling}"
 
-      - if @day.journal != ''
+      - unless @day.journal.blank?
         .panel.panel-default
           .panel-body
             p= "#{@day.journal}"
 
-      - if @day.poem != ''
+      - unless @day.poem.blank?
         .panel.panel-default
           .panel-body
             p= "#{@day.poem}"
 
-      - if @day.new != ''
+      - unless @day.new.blank?
         .panel.panel-default
           .panel-body
             p= "#{@day.new}"

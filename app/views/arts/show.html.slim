@@ -4,6 +4,6 @@ p#notice = notice
     ul.nav.nav-pils
     h1= @art.title
   .panel-body
-
+    img.art name='art' src="#{@day.art.url}"
     = link_to 'Editar', edit_art_path(@art), class: 'btn btn-warning pull-right'
     = link_to 'Back', art_path, class: 'btn btn-info pull-right'
