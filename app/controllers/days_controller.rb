@@ -56,7 +56,10 @@ class DaysController < ApplicationController
         :feeling, :song, :desire, :pain, :pain_level,
         :dreams, :poem, :new, :artist, :journal, :advice, :art, :art_name,
         questions_attributes: [:id, :text, :personal],
-        answers_attributes: [:id, :text, :question_id]
+        answers_attributes: [:id, :text, :question_id, :day_id],
+        arts_attributes: [:id, :url, :author, :title, :day_id],
+        songs_attributes: [:id, :url, :author, :title, :day_id],
+        advices_attributes: [:id, :text]
       )
     end
 end

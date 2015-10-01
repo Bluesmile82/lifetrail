@@ -11,21 +11,16 @@ p#notice = notice
         - @day.birthdays.each do |person|
           |= person.name
     - if @day.id
-      - if @day.art != ''
-      .panel.panel-default
-        .panel-body
-          ul
-            li.art
-              img.art name='art' src="#{@day.art}"
-            - if @day.is_html?
-              li.song
-                iframe.pull-right.song name='song' src="#{@day.song}"
-            - else
-              - if @day.song != ''
-                li
-                  i.mdi-image-audiotrack.pull-right= @day.song
-            figcaption
-            em.text-muted= @day.art_name
+      - if @day.art
+        .panel.panel-default
+         .panel-body
+           ul
+             li.art
+              img.art name='art' src="#{@day.art.url}"
+             figcaption
+              em.text-muted= "#{@day.art.title} - #{@day.arts.first.author}"
+      - if @day.song && @day.song.is_html?
+          iframe.pull-right.song name='song' src="#{@day.song.url}"
       - if @day.desire != ''
         .panel.panel-default
           .panel-body
@@ -51,6 +46,10 @@ p#notice = notice
             p= "#{@day.new}"
     - else
       = render partial: 'form', locals:{ action: 'Crear'}
+
+    .panel.panel-default
+      .panel-body
+        =Advice.all.sample.text if Advice.all.any?
     .panel.panel-default
       .panel-heading role="tab" id="heading-ind-prensa"
         h4.panel-title

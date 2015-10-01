@@ -1,10 +1,8 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :song do
-    url "MyString"
-    author "MyString"
-    title "MyString"
-    day nil
+  factory :advice do
+    text "MyString"
+    references ""
   end
 end

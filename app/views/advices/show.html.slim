@@ -1,0 +1,9 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+    h1= @advice.name
+  .panel-body
+
+    = link_to 'Editar', edit_advice_path(@advice), class: 'btn btn-warning pull-right'
+    = link_to 'Back', advice_path, class: 'btn btn-info pull-right'

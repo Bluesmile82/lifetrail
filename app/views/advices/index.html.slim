@@ -1,0 +1,22 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Consejos
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Consejo
+          th
+          th
+
+      tbody
+        - @advices.each do |advice|
+          tr
+            td = link_to advice.text , advice , class: 'btn btn-primary'
+            td = time_ago_in_words(advice.created_at)
+            td = link_to 'Editar', edit_advice_path(advice), class: 'btn btn-info'
+            td = link_to 'Borrar', advice, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_advice_path, class: 'btn btn-primary'

@@ -28,30 +28,28 @@
 
     .field.form-group
       .control-label
-        = f.label 'Un consejo'
-        = f.text_area :advice, placeholder: 'Un consejo', class: "form-control"
+        #advices
+          = f.fields_for :advices do |advice|
+            = render 'advice_fields', f: advice
+          .links
+            = link_to_add_association 'Un consejo', f, :advices
 
-    .col-xs-6
-      .field.form-group
-        .control-label
-          = f.label 'Canción para hoy'
-          = f.text_field :song, placeholder: 'Canción para hoy', class: "form-control"
-    .col-xs-6
-      .field.form-group
-        .control-label
-          = f.label 'Grupo de la canción'
-          = f.text_field :artist, placeholder: 'Artista', class: "form-control"
+    .field.form-group
+      .control-label
+        #songs
+          = f.fields_for :songs do |song|
+            = render 'song_fields', f: song
+          .links
+            = link_to_add_association 'Canción para hoy', f, :songs
 
-    .col-xs-6
-      .field.form-group
-        .control-label
-          = f.label 'Arte para hoy'
-          = f.text_field :art, placeholder: 'Arte para hoy', class: "form-control"
-    .col-xs-6
-      .field.form-group
-        .control-label
-          = f.label 'Nombre del arte'
-          = f.text_field :art_name, placeholder: 'Nombre del arte', class: "form-control"
+    .field.form-group
+      .control-label
+        #arts
+          = f.fields_for :arts do |art|
+            = render 'art_fields', f: art
+          .links
+            = link_to_add_association 'Arte para hoy', f, :arts
+
     .field.form-group
       .control-label
         = f.label 'Cómo va tu dolor'

@@ -10,6 +10,7 @@ gem 'wordnik'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem "simple_calendar", "~> 2.0"
 
 gem 'bootstrap-sass', '~> 3.3.5'
 gem "font-awesome-rails"

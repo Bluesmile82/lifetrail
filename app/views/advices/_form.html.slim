@@ -1,0 +1,15 @@
+= form_for @advice , class: 'form'  do |f|
+  - if @advice.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@advice.errors.count, "error")} prohibited this advice from being saved:"
+      ul
+        - @advice.errors.full_messages.each do |message|
+          li = message
+
+  .field.form-group
+    .control-label
+      = f.label 'Consejo'
+      = f.text_field :text, class: "form-control"
+
+    = f.submit action, class: 'btn btn-primary'
+    = link_to 'Atrás', advices_path, class: 'btn btn-info '
