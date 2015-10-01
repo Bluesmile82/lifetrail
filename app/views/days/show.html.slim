@@ -19,7 +19,7 @@ p#notice = notice
               img.art name='art' src="#{@day.art.url}"
              figcaption
               em.text-muted= "#{@day.art.title} - #{@day.arts.first.author}"
-      - if @day.song && @day.song.is_html?
+      - if @day.song && @day.song.url && @day.song.is_html?
           iframe.pull-right.song name='song' src="#{@day.song.url}"
       - if @day.desire != ''
         .panel.panel-default
