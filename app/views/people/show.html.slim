@@ -4,9 +4,14 @@ p#notice = notice
     ul.nav.nav-pils
       li.pull-right.active.badge= @person.city
     h1= @person.name
-    = @person.mood
   .panel-body
     h5= "Vista última vez #{distance_of_time_in_words_to_now(@person.last_date_seen)}"
-
-    = link_to 'Editar', edit_person_path(@person), class: 'btn btn-warning pull-right'
+    p= @person.mood
+    p= @person.personality
+    p= @person.likes
+    p= "Quedan #{@person.birthday.yday - Date.today.yday} dias para su cumpleaños" if @person.birthday
+    = link_to edit_person_path(@person), class: "btn btn-default" do
+            i.mdi-content-create
+    = link_to @person, data: {:confirm => 'Are you sure?'}, :method => :delete, class: "btn btn-default" do
+            i.mdi-content-clear
     = link_to 'Back', people_path, class: 'btn btn-info pull-right'

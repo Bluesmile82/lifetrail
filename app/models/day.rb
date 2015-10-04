@@ -27,7 +27,9 @@ class Day < ActiveRecord::Base
   has_many :advices
   has_many :arts
   has_many :songs
+  has_many :wishes
   accepts_nested_attributes_for :questions
+  accepts_nested_attributes_for :wishes
   accepts_nested_attributes_for :answers
   accepts_nested_attributes_for :advices
   accepts_nested_attributes_for :songs

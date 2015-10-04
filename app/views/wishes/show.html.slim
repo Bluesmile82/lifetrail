@@ -1,0 +1,9 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+    h1= @wish.text
+  .panel-body
+    img.wish name='wish' src="#{@day.wish.url}"
+    = link_to 'Editar', edit_wish_path(@wish), class: 'btn btn-warning pull-right'
+    = link_to 'Back', wish_path, class: 'btn btn-info pull-right'

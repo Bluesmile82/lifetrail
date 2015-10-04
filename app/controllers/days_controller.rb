@@ -59,7 +59,8 @@ class DaysController < ApplicationController
         answers_attributes: [:id, :text, :question_id, :day_id],
         arts_attributes: [:id, :url, :author, :title, :day_id],
         songs_attributes: [:id, :url, :author, :title, :day_id],
-        advices_attributes: [:id, :text]
+        advices_attributes: [:id, :text],
+        wishes_attributes: [:id, :text]
       )
     end
 end

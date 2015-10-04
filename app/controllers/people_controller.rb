@@ -3,6 +3,7 @@ class PeopleController < ApplicationController
 
   def index
     @people = Person.all
+    @people = @people.where(city: params[:city])if params[:city]
   end
 
   def show
@@ -27,7 +28,8 @@ class PeopleController < ApplicationController
 
   def update
     if @person.update(person_params)
-      redirect_to @person, notice: 'Gracias'
+      redirect_to people_path, notice: 'Gracias'
+
     else
       render :edit
     end
@@ -44,6 +46,6 @@ class PeopleController < ApplicationController
     end
 
     def person_params
-      params.require(:person).permit(:name, :city, :last_date_seen, :mood, :personality, :birthday, :likes)
+      params.require(:person).permit(:name, :city, :last_date_seen, :mood, :personality, :birthday, :likes, "birthday(1i)", ":birthday(2i)", ":birthday(3i)")
     end
 end

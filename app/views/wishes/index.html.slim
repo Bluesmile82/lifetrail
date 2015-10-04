@@ -1,0 +1,21 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Deseos
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Deseo
+          th
+          th
+
+      tbody
+        - @wishes.each do |wish|
+          tr
+            td = link_to wish.text ,wish , class: 'btn btn-primary'
+            td = link_to 'Editar', edit_wish_path(wish), class: 'btn btn-info'
+            td = link_to 'Borrar', wish, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_wish_path, class: 'btn btn-primary'

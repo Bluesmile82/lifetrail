@@ -1,0 +1,15 @@
+= form_for @wish , class: 'form'  do |f|
+  - if @wish.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@wish.errors.count, "error")} prohibited this wish from being saved:"
+      ul
+        - @wish.errors.full_messages.each do |message|
+          li = message
+
+  .field.form-group
+    .control-label
+      = f.label 'Deseos'
+      = f.text_field :text, placeholder: 'Deseo' , class: "form-control"
+
+    = f.submit action, class: 'btn btn-primary'
+    = link_to 'Atrás', wishes_path, class: 'btn btn-info '

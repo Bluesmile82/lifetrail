@@ -1,31 +1,17 @@
 .panel.panel-primary
   .panel-heading
-    h1 Personas
-
+    h1= link_to "Personas", people_path, class: "white"
   .panel-body
-    table.table
-      thead
-        tr
-          th Nombre
-          th Ciudad
-          th Ultima vez contactada
-          th Estado de ánimo
-          th Likes
-          th Cumpleaños
-          th
-          th
+    =link_to "Madrid", people_path( city:"Madrid"), class: "btn btn-default pull-right"
+    =link_to "Bruselas", people_path( city:"Madrid"), class: "btn btn-default pull-right"
+    =link_to "Todos", people_path, class: "btn btn-default pull-right"
+    .row
+    - @people.each do |person|
+      .person.col-xs-4.text-center class= "#{person.color}"
+        = link_to person_path( id: person.id , person: { "last_date_seen(1i)": Date.today.year,"last_date_seen(2i)": Date.today.month,"last_date_seen(3i)": Date.today.day  } ), method: :patch, class: "btn btn-default pull-right white" do
+          i.mdi-action-done
+        = link_to person.name , person , class: 'btn btn-default white'
+        h5= person.mood
+        p= time_ago_in_words(person.last_date_seen)
 
-      tbody
-        - @people.each do |person|
-          tr
-            td = link_to person.name , person , class: 'btn btn-primary'
-            td = person.city
-            td = time_ago_in_words(person.last_date_seen)
-            td = person.mood
-            td = person.likes
-            td = person.birthday ? person.birthday.strftime('%d/%m') : 'Cumpleaños desconocido'
-            td = link_to 'Editar', edit_person_path(person), class: 'btn btn-info'
-            td = link_to 'Borrar', person, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
-
-
-= link_to 'Nueva Persona', new_person_path, class: 'btn btn-primary'
+    = link_to 'Nueva Persona', new_person_path, class: 'btn btn-primary'

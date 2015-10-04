@@ -15,6 +15,14 @@
 #
 
 class Person < ActiveRecord::Base
-attr_accessor :birthday
   validates :name, uniqueness: true, presence: true
+  validates :last_date_seen, presence: true
+  def color
+    time_no_see = Date.today - last_date_seen
+    case
+    when time_no_see < 4 then "green"
+    when time_no_see > 4 && time_no_see < 15 then "blue"
+    when time_no_see > 15 then "red"
+    end
+  end
 end
