@@ -37,7 +37,7 @@
     .field.form-group
       .control-label
         #wishes
-          = f.fields_for :arts do |wish|
+          = f.fields_for :wishes do |wish|
             = render 'wish_fields', f: wish
           .links
             = link_to_add_association 'Un deseo', f, :wishes
