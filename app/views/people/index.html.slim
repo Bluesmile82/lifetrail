@@ -3,7 +3,7 @@
     h1= link_to "Personas", people_path, class: "white"
   .panel-body
     =link_to "Madrid", people_path( city:"Madrid"), class: "btn btn-default pull-right"
-    =link_to "Bruselas", people_path( city:"Madrid"), class: "btn btn-default pull-right"
+    =link_to "Bruselas", people_path( city:"Bruselas"), class: "btn btn-default pull-right"
     =link_to "Todos", people_path, class: "btn btn-default pull-right"
     .row
     - @people.each do |person|
