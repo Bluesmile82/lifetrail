@@ -33,6 +33,14 @@
       = f.text_field :personality, class: "form-control"
   .field.form-group
     .control-label
+      #memories
+        = f.fields_for :memories do |memory|
+          = render 'memory_fields', f: memory
+        = f.hidden_field :person_id, value: @person.id
+        .links
+          = link_to_add_association 'Un recuerdo', f, :memories
+  .field.form-group
+    .control-label
       = f.label 'Fecha de nacimiento'
       = f.date_select :birthday, { :order => [:month, :day], :prompt => { :day => 'Dia', :month => 'Mes' } }, class: "form-control"
 

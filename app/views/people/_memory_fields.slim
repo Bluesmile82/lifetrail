@@ -1,0 +1,5 @@
+.nested-fields
+  .field
+    = f.label 'Un recuerdo'
+    = f.text_area :text, placeholder: 'Añade un recuerdo' , class: "form-control"
+    / = link_to_remove_association "-", f

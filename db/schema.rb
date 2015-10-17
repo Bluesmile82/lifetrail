@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151004142034) do
+ActiveRecord::Schema.define(version: 20151017114154) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,17 @@ ActiveRecord::Schema.define(version: 20151004142034) do
     t.string   "advice"
   end
 
+  create_table "memories", force: :cascade do |t|
+    t.integer  "person_id"
+    t.integer  "day_id"
+    t.string   "text"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "memories", ["day_id"], name: "index_memories_on_day_id", using: :btree
+  add_index "memories", ["person_id"], name: "index_memories_on_person_id", using: :btree
+
   create_table "people", force: :cascade do |t|
     t.string   "name"
     t.string   "city"
@@ -115,6 +126,8 @@ ActiveRecord::Schema.define(version: 20151004142034) do
   add_foreign_key "answers", "days"
   add_foreign_key "answers", "questions"
   add_foreign_key "arts", "days"
+  add_foreign_key "memories", "days"
+  add_foreign_key "memories", "people"
   add_foreign_key "questions", "days"
   add_foreign_key "songs", "days"
   add_foreign_key "wishes", "days"

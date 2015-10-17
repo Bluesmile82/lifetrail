@@ -1,0 +1,6 @@
+.nested-fields
+  .field
+    = f.label 'Un recuerdo'
+    = f.text_area :text, placeholder: 'Añade un recuerdo' , class: "form-control"
+    = f.select :person_id, options_from_collection_for_select(Person.all, :id, :name), :include_blank => 'Relacionado con alguien' , class: "form-control"
+    / = link_to_remove_association "-", f

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :achievements
   resources :questions
-  resources :advice
+  resources :advices
   resources :people
   resources :days
   resources :arts

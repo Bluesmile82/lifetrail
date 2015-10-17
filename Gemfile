@@ -27,6 +27,7 @@ gem "cocoon"
 gem 'rails_12factor'
 gem 'figaro'
 gem 'awesome_print'
+gem "simple_calendar", "~> 2.0"
 
 group :development, :test do
   gem 'byebug'

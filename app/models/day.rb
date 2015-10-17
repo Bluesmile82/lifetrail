@@ -22,12 +22,14 @@ class Day < ActiveRecord::Base
   validate :just_today, on: :create
   GMT = 2
   GMT_SECONDS = GMT * 60 * 60
+  has_many :memories
   has_many :questions
   has_many :answers
   has_many :advices
   has_many :arts
   has_many :songs
   has_many :wishes
+  accepts_nested_attributes_for :memories
   accepts_nested_attributes_for :questions
   accepts_nested_attributes_for :wishes
   accepts_nested_attributes_for :answers
@@ -63,5 +65,9 @@ class Day < ActiveRecord::Base
 
   def art
     arts.first
+  end
+
+  def start_time
+    created_at
   end
 end

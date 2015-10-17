@@ -17,6 +17,8 @@
 class Person < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
   validates :last_date_seen, presence: true
+  has_many :memories
+  accepts_nested_attributes_for :memories
   def color
     time_no_see = Date.today - last_date_seen
     case

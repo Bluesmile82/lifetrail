@@ -36,6 +36,14 @@
 
     .field.form-group
       .control-label
+        #memories
+          = f.fields_for :memories do |memory|
+            = render 'memory_fields', f: memory
+          .links
+            = link_to_add_association 'Un recuerdo', f, :memories
+
+    .field.form-group
+      .control-label
         #wishes
           = f.fields_for :wishes do |wish|
             = render 'wish_fields', f: wish

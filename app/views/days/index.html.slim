@@ -3,6 +3,13 @@
     h1 Todos los días
 
   .panel-body
+    = month_calendar events: @days do |date, days|
+      - if days.detect{|day| day.created_at.to_date == date}
+        - days.each do |day|
+            = link_to date.day, day
+      - else
+        = date.day
+        = link_to " +", new_day_path
     table.table
       thead
         tr

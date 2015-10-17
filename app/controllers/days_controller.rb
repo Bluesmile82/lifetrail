@@ -60,6 +60,7 @@ class DaysController < ApplicationController
         arts_attributes: [:id, :url, :author, :title, :day_id],
         songs_attributes: [:id, :url, :author, :title, :day_id],
         advices_attributes: [:id, :text],
+        memories_attributes: [:id, :text, :person_id],
         wishes_attributes: [:id, :text]
       )
     end
