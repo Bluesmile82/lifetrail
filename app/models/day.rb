@@ -70,4 +70,24 @@ class Day < ActiveRecord::Base
   def start_time
     created_at
   end
+
+  def events_of_the_day
+    today = created_at || Date.today
+    case today.wday
+    when 0 #Sunday
+      "Jam en Black sheep, Bonnefoi y Floris bar"
+    when 1 #Monday
+      "Jam Bizon, Sound Jazz Club, La Tricoterie, Bar d'Ixelles"
+    when 2 #Tuesday
+      "Jam Lava Café"
+    when 3 #Wednesday
+      "Jam Floréo"
+    when 4 #Thursday
+      "Jam Delirium, Café Kafka"
+    when 5 #Friday
+      ""
+    when 6 #Saturday
+      ""
+    end
+  end
 end

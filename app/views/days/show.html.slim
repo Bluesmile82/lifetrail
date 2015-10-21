@@ -69,6 +69,7 @@ p#notice = notice
             span Events
       .panel-collapse.collapse id="collapse-ind-events" role="tabpanel" aria-labelledby="heading-ind-events"
         .panel-body
+          li = @day.events_of_the_day
           li
             a href="http://www.arsene50.be/fr" target='_blank' Arsene 50
           li
