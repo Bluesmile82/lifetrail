@@ -3,23 +3,9 @@
     h1 Canción
 
   .panel-body
-    table.table
-      thead
-        tr
-          th Canción
-          th Autor
-          th Url
-          th
-          th
-
-      tbody
-        - @songs.each do |song|
-          tr
-            td = link_to song.title ,song , class: 'btn btn-primary'
-            td = song.author
-            td = song.url
-            td = link_to 'Editar', edit_song_path(song), class: 'btn btn-info'
-            td = link_to 'Borrar', song, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
-
+    - @songs.each do |song|
+      .art-image.col-xs-4.text-center
+        iframe name='song' src="#{song.url}"
+        p= link_to "#{song.title} -  #{song.author}", edit_song_path(song)
 
 = link_to 'Nuevo', new_song_path, class: 'btn btn-primary'

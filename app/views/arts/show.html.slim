@@ -5,5 +5,6 @@ p#notice = notice
     h1= @art.title
   .panel-body
     img.art name='art' src="#{@art.url}"
+    = link_to 'Borrar', art_path , data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
     = link_to 'Editar', edit_art_path(@art), class: 'btn btn-warning pull-right'
     = link_to 'Back', art_path, class: 'btn btn-info pull-right'
