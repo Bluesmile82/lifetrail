@@ -1,6 +1,7 @@
 .panel.panel-primary
   .panel-heading
-    h1 Editar Consejo
+    h1 Editar Arte
 
   .panel-body
+    img.art name='art' src="#{@art.url}"
     = render partial: 'form', locals:{ action: 'Editar' }
