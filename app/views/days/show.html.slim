@@ -92,5 +92,12 @@ p#notice = notice
               - Wordnik.words.get_word_of_the_day['examples'].each do |example|
                 p= example['text']
               end
+        .panel-heading role="tab" id="heading-art"
+          h4.panel-title
+            a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-art" aria-expanded="true" aria-controls="collapse-art"
+              span Art of the day
+        .panel-collapse.collapse id="collapse-art" role="tabpanel" aria-labelledby="heading-art"
+          .panel-body
+            iframe height="900px" width="100%" src="http://www.wikiart.org/es/random"
 
   = link_to 'Editar', edit_day_path(@day), class: 'btn btn-warning pull-right' if @day.id
