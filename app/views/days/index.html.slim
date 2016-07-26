@@ -16,8 +16,8 @@
           th Fecha
           th desire
           th Feeling
-          th pain
-          th pain_level
+          th energía
+          th energía por la noche
 
       tbody
         - @days.each do |day|
@@ -25,5 +25,5 @@
             td = link_to day.human_date , day, class: 'btn btn-primary'
             td = day.desire
             td = day.feeling
-            td = day.pain
-            td = day.pain_level
+            td = day.happiness_level
+            td = day.happiness_level_evening
