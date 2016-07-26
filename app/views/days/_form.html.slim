@@ -8,84 +8,64 @@
 
     .field.form-group
       .control-label
-        = f.label 'Recuerdas algún sueño'
-        = f.text_area :dreams, placeholder: 'Recuerdas algún sueño', class: "form-control"
-
-    .field.form-group
-      .control-label
-        = f.label 'Qué quieres hacer'
         = f.text_area :desire, placeholder: 'Qué quieres hacer', class: "form-control"
 
     .field.form-group
       .control-label
-        = f.label 'Cómo te encuentras hoy'
-        = f.text_area :feeling, placeholder: 'Cómo te encuentras hoy', class: "form-control"
+        = f.text_area :journal, placeholder: 'Día de hoy', class: "form-control"
 
-    .field.form-group
-      .control-label
-        = f.label 'Qué has hecho hoy'
-        = f.text_area :journal, placeholder: 'Qué has hecho hoy', class: "form-control"
+      .panel-heading role="tab" id="panel-more"
+        h4.panel-title
+          a role="button" data-toggle="collapse" data-parent="#accordion" href="#more" aria-expanded="true" aria-controls="more"
+            span Más
+      .panel-collapse.collapse id="more" role="tabpanel" aria-labelledby="more"
+        .panel-body
 
-    .field.form-group
-      .control-label
-        #advices
-          = f.fields_for :advices do |advice|
-            = render 'advice_fields', f: advice
-          .links
-            = link_to_add_association 'Un consejo', f, :advices
+          .field.form-group
+            .control-label
+              #advices
+                = f.fields_for :advices do |advice|
+                  = render 'advice_fields', f: advice
+                .links
+                  = link_to_add_association 'Un consejo', f, :advices
 
-    .field.form-group
-      .control-label
-        #memories
-          = f.fields_for :memories do |memory|
-            = render 'memory_fields', f: memory
-          .links
-            = link_to_add_association 'Un recuerdo', f, :memories
+          .field.form-group
+            .control-label
+              #memories
+                = f.fields_for :memories do |memory|
+                  = render 'memory_fields', f: memory
+                .links
+                  = link_to_add_association 'Un recuerdo', f, :memories
 
-    .field.form-group
-      .control-label
-        #wishes
-          = f.fields_for :wishes do |wish|
-            = render 'wish_fields', f: wish
-          .links
-            = link_to_add_association 'Un deseo', f, :wishes
+          .field.form-group
+            .control-label
+              #wishes
+                = f.fields_for :wishes do |wish|
+                  = render 'wish_fields', f: wish
+                .links
+                  = link_to_add_association 'Un deseo', f, :wishes
 
-    .field.form-group
-      .control-label
-        #songs
-          = f.fields_for :songs do |song|
-            = render 'song_fields', f: song
-          .links
-            = link_to_add_association 'Canción para hoy', f, :songs
+          .field.form-group
+            .control-label
+              #songs
+                = f.fields_for :songs do |song|
+                  = render 'song_fields', f: song
+                .links
+                  = link_to_add_association 'Canción para hoy', f, :songs
 
-    .field.form-group
-      .control-label
-        #arts
-          = f.fields_for :arts do |art|
-            = render 'art_fields', f: art
-          .links
-            = link_to_add_association 'Arte para hoy', f, :arts
+          .field.form-group
+            .control-label
+              #arts
+                = f.fields_for :arts do |art|
+                  = render 'art_fields', f: art
+                .links
+                  = link_to_add_association 'Arte para hoy', f, :arts
 
-    .field.form-group
-      .control-label
-        = f.label 'Cómo va tu dolor'
-        p= @day.pain_level
-    .field.form-group
-        = f.range_field  :pain_level, class: "form-control"
-        = f.text_field :pain, placeholder: 'Cómo va tu dolor', class: "form-control"
+      .field.form-group
+        span= @day.happiness_level.to_i / 10
+        = f.range_field  :happiness_level, class: "form-control"
+        span= @day.happiness_level_evening.to_i / 10
+        = f.range_field  :happiness_level_evening, class: "form-control"
 
-    .field.form-group
-      .control-label
-        = f.label 'Poema de hoy'
-        = f.text_field :poem, placeholder: 'Poema para hoy', class: "form-control"
-
-    .field.form-group
-      .control-label
-        #questions
-          = f.label 'Una pregunta personal'
-          = f.fields_for :questions do |question|
-            = render 'question_fields', f: question
-          .links
-            = link_to_add_association 'Añade pregunta', f, :questions
     = f.submit action, class: 'btn btn-primary'
     = link_to 'Atrás', day_path, class: 'btn btn-info ' if @day.id

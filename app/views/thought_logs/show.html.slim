@@ -1,0 +1,14 @@
+p#notice = notice
+.panel.panel-primary
+  .panel-heading
+    ul.nav.nav-pils
+    h1= @thought_log.thought
+  .panel-body
+    p= @thought_log.situation
+    p= @thought_log.emotion
+    p= @thought_log.response
+    p= @thought_log.alternative_thought
+    p= @thought_log.result
+
+    = link_to 'Editar', edit_thought_log_path(@thought_log), class: 'btn btn-warning pull-right'
+    = link_to 'Back', thought_logs_path, class: 'btn btn-info pull-right'

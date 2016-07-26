@@ -1,0 +1,40 @@
+= form_for @thought_log , class: 'form'  do |f|
+  - if @thought_log.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@thought_log.errors.count, "error")} prohibited this thought_log from being saved:"
+      ul
+        - @thought_log.errors.full_messages.each do |message|
+          li = message
+
+  .field.form-group
+    .control-label
+      = f.label 'Situación'
+      = f.text_field :situation, class: "form-control"
+
+  .field.form-group
+    .control-label
+      = f.label 'Emoción'
+      = f.text_field :emotion, class: "form-control"
+
+  .field.form-group
+    .control-label
+      = f.label 'Pensamiento'
+      = f.text_field :thought, class: "form-control"
+
+  .field.form-group
+    .control-label
+      = f.label 'Respuesta'
+      = f.text_field :response, class: "form-control"
+
+  .field.form-group
+    .control-label
+      = f.label 'Pensamiento Alternativo'
+      = f.text_field :alternative_thought, class: "form-control"
+
+  .field.form-group
+    .control-label
+      = f.label 'Resultado'
+      = f.text_field :result, class: "form-control"
+
+    = f.submit action, class: 'btn btn-primary'
+    = link_to 'Atrás', thought_logs_path, class: 'btn btn-info '

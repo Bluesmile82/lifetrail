@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: wishes
+#
+#  id         :integer          not null, primary key
+#  text       :string
+#  day_id     :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Wish, :type => :model do

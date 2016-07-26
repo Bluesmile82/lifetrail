@@ -1,0 +1,21 @@
+.panel.panel-primary
+  .panel-heading
+    h1 Pensamientos
+
+  .panel-body
+    table.table
+      thead
+        tr
+          th Pensamiento
+          th
+          th
+
+      tbody
+        - @thought_logs.each do |thought_log|
+          tr
+            td = link_to thought_log.thought , thought_log , class: 'btn btn-primary'
+            td = time_ago_in_words(thought_log.created_at)
+            td = link_to 'Borrar', thought_log, data: {:confirm => 'Are you sure?'}, :method => :delete, class: 'btn btn-default'
+
+
+= link_to 'Nuevo', new_thought_log_path, class: 'btn btn-primary'

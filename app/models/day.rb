@@ -2,20 +2,21 @@
 #
 # Table name: days
 #
-#  id         :integer          not null, primary key
-#  feeling    :text
-#  song       :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  desire     :text
-#  pain       :text
-#  pain_level :integer
-#  dreams     :string
-#  poem       :string
-#  new        :string
-#  artist     :string
-#  journal    :string
-#  advice     :string
+#  id                 :integer          not null, primary key
+#  feeling            :text
+#  song               :string
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  desire             :text
+#  pain               :text
+#  pain_level         :integer
+#  dreams             :string
+#  poem               :string
+#  new                :string
+#  artist             :string
+#  journal            :string
+#  advice             :string
+#  pain_level_evening :integer
 #
 
 class Day < ActiveRecord::Base
@@ -29,6 +30,7 @@ class Day < ActiveRecord::Base
   has_many :arts
   has_many :songs
   has_many :wishes
+  has_many :thought_logs
   accepts_nested_attributes_for :memories
   accepts_nested_attributes_for :questions
   accepts_nested_attributes_for :wishes
@@ -36,6 +38,7 @@ class Day < ActiveRecord::Base
   accepts_nested_attributes_for :advices
   accepts_nested_attributes_for :songs
   accepts_nested_attributes_for :arts
+  accepts_nested_attributes_for :thought_logs
 
   def just_today
     !Day.select{ |day| day.created_at.to_date == (Time.now + GMT_SECONDS).to_date}.any?
