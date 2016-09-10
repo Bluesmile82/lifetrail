@@ -101,3 +101,8 @@ p#notice = notice
             iframe height="900px" width="100%" src="http://www.wikiart.org/es/random"
 
   = link_to 'Editar', edit_day_path(@day), class: 'btn btn-warning pull-right' if @day.id
+
+  = react_component('Reports', {happiness_level: @happiness_level})
+
+  .chart
+

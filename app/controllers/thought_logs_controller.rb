@@ -1,5 +1,5 @@
 class ThoughtLogsController < ApplicationController
-  before_action :set_thought_log, only: [:show, :edit, :update, :destroy]
+  before_action :set_thought_log, only: [:show, :edit, :update, :destroy, :add_time]
 
   def index
     @thought_logs = ThoughtLog.all
@@ -25,6 +25,15 @@ class ThoughtLogsController < ApplicationController
     end
   end
 
+  def add_time
+    times = @thought_log.times
+    if @thought_log.update(times: times + 1)
+      redirect_to @thought_log, notice: 'Gracias'
+    else
+      render :edit
+    end
+  end
+
   def update
     if @thought_log.update(thought_log_params)
       redirect_to @thought_log, notice: 'Gracias'
@@ -44,6 +53,6 @@ class ThoughtLogsController < ApplicationController
     end
 
     def thought_log_params
-      params.require(:thought_log).permit(:situation, :emotion, :thought, :response, :result, :alternative_thought, :result)
+      params.require(:thought_log).permit(:situation, :emotion, :thought, :response, :result, :error, :times, :alternative_thought, :result)
     end
 end

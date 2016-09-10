@@ -7,7 +7,8 @@ class DaysController < ApplicationController
 
   def show
     @day = params[:id] ? Day.find(params['id']) : Day.today || Day.new
-  end
+    @happiness_level = Day.all.map { |d| d.happiness_level }
+    end
 
   def edit
   end

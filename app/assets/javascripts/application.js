@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require d3
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
@@ -17,3 +18,6 @@
 //= require material-init
 //= require turbolinks
 //= require cocoon
+//= require react
+//= require react_ujs
+//= require components

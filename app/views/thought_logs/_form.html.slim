@@ -28,6 +28,11 @@
 
   .field.form-group
     .control-label
+      = f.label 'Error'
+      = f.text_field :error, class: "form-control"
+
+  .field.form-group
+    .control-label
       = f.label 'Pensamiento Alternativo'
       = f.text_field :alternative_thought, class: "form-control"
 

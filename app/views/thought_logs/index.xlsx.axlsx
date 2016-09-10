@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Logs") do |sheet|
+  sheet.add_row ['Situacion', 'Emoción', 'Pensamiento', 'Respuesta', 'Resultado', 'Pensamiento alternativo', 'Resultado', 'Error']
+  @thought_logs.each do |thought_log|
+    sheet.add_row [thought_log.situation, thought_log.emotion, thought_log.thought, thought_log.response, thought_log.result, thought_log.alternative_thought, thought_log.result, thought_log.error]
+  end
+end

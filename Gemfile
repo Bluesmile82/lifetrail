@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 ruby '2.2.2'
+gem 'bundler', '>= 1.8.4'
 gem 'rails', '4.2.1'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -27,7 +28,14 @@ gem "cocoon"
 gem 'rails_12factor'
 gem 'figaro'
 gem 'awesome_print'
-gem "simple_calendar", "~> 2.0"
+gem 'rubyzip', '~> 1.1.0'
+gem 'axlsx', '2.1.0.pre'
+gem 'axlsx_rails'
+gem 'react-rails'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-d3'
+end
 
 group :development, :test do
   gem 'byebug'
